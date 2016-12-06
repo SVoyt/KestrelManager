@@ -18,6 +18,10 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "KestrelManager.Engine", "sr
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "KestrelManager.Client", "src\KestrelManager.Client\KestrelManager.Client.xproj", "{2B0C9E7B-CE79-4A0E-A29B-943C465117AD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E2FBA638-B47C-4B14-9DE6-CE33EF463375}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Kestrel.Client.Tests", "test\Kestrel.Client.Tests\Kestrel.Client.Tests.xproj", "{9A2C74DD-E807-4992-9499-959EAB4E701D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +44,10 @@ Global
 		{2B0C9E7B-CE79-4A0E-A29B-943C465117AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B0C9E7B-CE79-4A0E-A29B-943C465117AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B0C9E7B-CE79-4A0E-A29B-943C465117AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A2C74DD-E807-4992-9499-959EAB4E701D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A2C74DD-E807-4992-9499-959EAB4E701D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A2C74DD-E807-4992-9499-959EAB4E701D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A2C74DD-E807-4992-9499-959EAB4E701D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,5 +57,6 @@ Global
 		{08E72A03-9E27-4278-A7FB-0964FBD348CD} = {890F10AE-EC93-4B8D-A4E9-BC6F715E81E4}
 		{5CDCA157-3584-46CA-9751-12ACBBC259DB} = {890F10AE-EC93-4B8D-A4E9-BC6F715E81E4}
 		{2B0C9E7B-CE79-4A0E-A29B-943C465117AD} = {890F10AE-EC93-4B8D-A4E9-BC6F715E81E4}
+		{9A2C74DD-E807-4992-9499-959EAB4E701D} = {E2FBA638-B47C-4B14-9DE6-CE33EF463375}
 	EndGlobalSection
 EndGlobal
