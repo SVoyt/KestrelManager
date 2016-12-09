@@ -41,7 +41,7 @@ namespace KestrelManager.Engine
         public bool StartApp(int id, string info = "")
         {
             IApp app = null;
-            if (!_apps.TryGetValue(id, out app))
+            if (!_apps.TryGetValue(id, out app) || (app.State== State.Started))
                 return false;
             return app.Start(info);
         }
