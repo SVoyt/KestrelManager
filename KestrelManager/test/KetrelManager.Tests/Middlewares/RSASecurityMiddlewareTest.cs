@@ -13,7 +13,7 @@ namespace KestrelManager.Tests
     public class RSASecurityMiddlewareTest
     {
         [Fact]
-        public void TestAuth()
+        public void TestInvoke()
         {
             const string PRIVATE_KEY = @"-----BEGIN RSA PRIVATE KEY-----
 MIICXAIBAAKBgQCqGKukO1De7zhZj6+H0qtjTkVxwTCpvKe4eCZ0FPqri0cb2JZfXJ/DgYSF6vUp
@@ -31,11 +31,11 @@ U9VQQSQzY1oZMVX8i1m5WUTLPz2yLJIBQVdXqhMCQBGoiuSoSjafUhV7i1cEGpb88h5NBYZzWXGZ
 
             const string ENCRYPTED_AUTH = @"lpTls5gZEErc2GqdfIyln+tIddZPtL7BwBYDgKpg0bzggO/LgWwZy3JRdPHqrznGEC/GXpCuuM9ZwefjvjtciyOqnBOPhaRdlv6o0WBY5PDPiQT2h0FvP9SVhc9kKqOpZbA6i3ZnIFALRIzpIA33G8+6FN6Oor3WEQDHlMiX4z0=";
 
-            var middleware = new RSASecurityMiddleware(null, new StringReader(PRIVATE_KEY));
-            //var context = new DefaultHttpContext();
-            //context.Request.Headers.Add("Authorization", new StringValues(ENCRYPTED_AUTH));
-            //middleware.Invoke(context);
-            //Assert.NotNull(context.User);
+            var middleware = new RSASecurityMiddleware( (httpcontext) => { return new Task(() => { }); } , new StringReader(PRIVATE_KEY));
+            var context = new DefaultHttpContext();
+            context.Request.Headers.Add("Authorization", new StringValues(ENCRYPTED_AUTH));
+            middleware.Invoke(context);
+            Assert.NotNull(context.User);
         }
     }
 }
