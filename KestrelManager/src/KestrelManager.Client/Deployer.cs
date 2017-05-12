@@ -48,8 +48,8 @@ namespace KestrelManager.Client
                     requestContent.Add(jsonData, "data");
 
                     var response = await client.PostAsync(par.Host + "/api/v1/app/deploy", requestContent);
-                    if (response.StatusCode == System.Net.HttpStatusCode.Forbidden)
-                        return new DeployResult(DeployState.PasswordIncorrect);
+                    if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                        return new DeployResult(DeployState.Unauthorized);
                     else
                         return new DeployResult(DeployState.Ok);
                 }

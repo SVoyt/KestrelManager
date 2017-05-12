@@ -12,6 +12,7 @@ using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using KestrelManager.Settings;
 
 namespace KestrelManager
 {
@@ -39,7 +40,7 @@ namespace KestrelManager
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var settings = new Settings();
+            var settings = new AppSettings();
             Configuration.Bind(settings);
             services.AddSingleton<IAppReporitory>(new AppRepository(settings.ApplicationParameters));
 

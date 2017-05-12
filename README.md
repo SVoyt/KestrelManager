@@ -1,7 +1,7 @@
 # KestrelManager
 Application for managing (start/stop/deploy) kestrel apps.
 It'is ultra-alpha-early version =))). 
-Welcome to contributing. There is to much work: tests, security etc.
+Welcome to contributing. There is too much work: tests, security etc.
 
 ## Sample builds for Windows
 [Server](https://github.com/SVoyt/svoyt.github.io/raw/master/kestrelmanager/0.0.1/samplebuilds/kestrelmanager.zip)

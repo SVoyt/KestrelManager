@@ -7,6 +7,6 @@ namespace KestrelManager.Client
 {
     public enum DeployState
     {
-        Ok, PasswordIncorrect,Error
+        Ok, Unauthorized, Error
     }
 }
