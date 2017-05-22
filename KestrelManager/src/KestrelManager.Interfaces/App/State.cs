@@ -2,6 +2,6 @@
 {
     public enum State
     {
-        Stopped,Started, Error
+        Started, Stopped, Exited, Error
     }
 }

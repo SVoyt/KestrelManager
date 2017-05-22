@@ -42,8 +42,8 @@ namespace KestrelManager.Controllers
         }
 
         [HttpPost]
-        [Route("[action]")]
-        public IActionResult Deploy()
+        [Route("[action]/{id}")]
+        public IActionResult Deploy(int id)
         {
             var deployData = JsonConvert.DeserializeObject<DeployData>(Request.Form["data"][0]);
             var app = _appRepository.FindIdAppByName(deployData.App);

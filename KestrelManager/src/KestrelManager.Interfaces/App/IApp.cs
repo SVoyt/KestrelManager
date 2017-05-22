@@ -4,7 +4,13 @@ namespace KestrelManager.Interfaces.App
 {
     public interface IApp:IDisposable
     {
-        string RunCommand { get; }
+        string StartCommand { get; }
+
+        string StartArguments { get; }
+
+		string StopCommand { get; }
+
+		string StopArguments { get; }
 
         string Name { get; }
 

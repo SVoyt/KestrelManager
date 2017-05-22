@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace KestrelManager.Client
 {
-    public enum DeployState
+    public enum ActionState
     {
-        Ok, Unauthorized, Error
+        Ok, Unauthorized, Forbidden, Error
     }
 }

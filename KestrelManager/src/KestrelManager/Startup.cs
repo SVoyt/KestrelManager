@@ -18,7 +18,7 @@ namespace KestrelManager
 {
     public class Startup
     {
-        public IConfigurationRoot Configuration { get; }
+        readonly AppSettings _settings;
 
         readonly IHostingEnvironment _hostingEnvironment;
 
@@ -32,7 +32,7 @@ namespace KestrelManager
                 .AddJsonFile($"appsettings.{hostingEnvironment.EnvironmentName}.json", optional: true);
 
             builder.AddEnvironmentVariables();
-            Configuration = builder.Build();
+            builder.Build().Bind(_settings);
         }
 
 
@@ -40,10 +40,7 @@ namespace KestrelManager
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var settings = new AppSettings();
-            Configuration.Bind(settings);
-            services.AddSingleton<IAppReporitory>(new AppRepository(settings.ApplicationParameters));
-
+            services.AddSingleton<IAppReporitory>(new AppRepository(_settings.ApplicationParameters));
 
             var jsonOutputSettings = new JsonSerializerSettings
             {
@@ -65,6 +62,7 @@ namespace KestrelManager
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             app.UseMvc();
+            app.UseRSASecurity(_settings.Security.Users.);
         }
     }
 }

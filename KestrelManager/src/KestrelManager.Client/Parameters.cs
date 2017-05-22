@@ -7,9 +7,15 @@ namespace KestrelManager.Client
 {
     public class Parameters
     {
+        public Command Command { get; } = Command.List;
+
+        public string User { get; set; }
+
+        public string KeyPath { get; set; }
+        
         public string Host { get; }
 
-        public string App { get; }
+        public int AppId { get; }
 
         public string RemotePath { get; }
 
@@ -19,28 +25,40 @@ namespace KestrelManager.Client
         {
             for (var i = 0; i < args.Length; i++)
             {
-                switch (args[i])
+                var name = args[i];
+                var value = args[i + 1];
+                switch (name)
                 {
+                    case "-c":
+                        Command = (Command)Enum.Parse(typeof(Command), value, true);
+                        break;
+                    case "-u":
+                        User = value;
+                        break;
+                    case "-k":
+                        KeyPath = value;
+                        break;
                     case "-h":
-                        Host = args[i + 1];
+                        Host = value;
                         break;
                     case "-a":
-                        App = args[i + 1];
+                        var appId = 0;
+                        int.TryParse(value, out appId);
+                        AppId = appId;
                         break;
-                    case "-remotepath":
-                        RemotePath = args[i + 1];
+                    case "-rp":
+                        RemotePath = value;
                         break;
-                    case "-path":
-                        Path = args[i + 1];
+                    case "-p":
+                        Path = value;
                         break;
                 }
             }
         }
 
         public bool IsFilled()
-        {   
-            //too much resources
-            return (new[] { Host, App, Path }).All(c => !string.IsNullOrEmpty(c));
+        {
+            return true;
         }
     }
 }
